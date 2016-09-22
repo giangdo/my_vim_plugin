@@ -378,11 +378,11 @@ if !hasmapto('<Plug>MarkRegex', 'x')
 	xmap <unique> <Leader>r <Plug>MarkRegex
 endif
 if !hasmapto('<Plug>MarkClear', 'n')
-	nmap <unique> <Leader>n <Plug>MarkClear
+	nmap <unique> <Leader>n <Plug>MarkAllClear
 endif
-" No default mapping for <Plug>MarkAllClear.
-" No default mapping for <Plug>MarkConfirmAllClear.
-" No default mapping for <Plug>MarkToggle.
+if !hasmapto('<Plug>MarkClear', 'M')
+	nmap <unique> <Leader>M <Plug>MarkToggle
+endif
 
 if !hasmapto('<Plug>MarkSearchCurrentNext', 'n')
 	nmap <unique> <Leader>* <Plug>MarkSearchCurrentNext
@@ -490,4 +490,12 @@ endif
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
+
+"- marks color ----------------------------------------------------------------
+hi MarkWord1  ctermbg=DarkCyan     ctermfg=Black  guibg=#8CCBEA    guifg=Black
+hi MarkWord2  ctermbg=DarkGreen    ctermfg=Black  guibg=#A4E57E    guifg=Black
+hi MarkWord3  ctermbg=DarkYellow   ctermfg=Black  guibg=#FFDB72    guifg=Black
+hi MarkWord4  ctermbg=DarkRed      ctermfg=Black  guibg=#FF7272    guifg=Black
+hi MarkWord5  ctermbg=DarkMagenta  ctermfg=Black  guibg=#FFB3FF    guifg=Black
+hi MarkWord6  ctermbg=DarkBlue     ctermfg=Black  guibg=#9999FF    guifg=Black
 " vim: ts=4 sts=0 sw=4 noet
